@@ -5,12 +5,12 @@ try:
 except ImportError:
     print("colorama not installed!")
 
-info_log    = f"{colorama.Fore.BLUE}[INFO]{colorama.Style.RESET_ALL}"
+info_log    = f"{colorama.Fore.LIGHTBLUE_EX}[INFO]{colorama.Style.RESET_ALL}"
 input_log   = f"{colorama.Fore.LIGHTBLUE_EX}[INPUT]{colorama.Style.RESET_ALL}"
-warn_log    = f"{colorama.Fore.YELLOW}[WARN]{colorama.Style.RESET_ALL}"
-error_log   = f"{colorama.Fore.RED}[ERROR]{colorama.Style.RESET_ALL}"
-success_log = f"{colorama.Fore.GREEN}[SUCCESS]{colorama.Style.RESET_ALL}"
-wait_log    = f"{colorama.Fore.CYAN}[WAIT]{colorama.Style.RESET_ALL}"
+warn_log    = f"{colorama.Fore.LIGHTYELLOW_EX}[WARN]{colorama.Style.RESET_ALL}"
+error_log   = f"{colorama.Fore.LIGHTRED_EX}[ERROR]{colorama.Style.RESET_ALL}"
+success_log = f"{colorama.Fore.LIGHTGREEN_EX}[SUCCESS]{colorama.Style.RESET_ALL}"
+wait_log    = f"{colorama.Fore.LIGHTCYAN_EX}[WAIT]{colorama.Style.RESET_ALL}"
 
 current_time = datetime.now().strftime("%H:%M:%S")
 
