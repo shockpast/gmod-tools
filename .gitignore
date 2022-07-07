@@ -2,6 +2,7 @@ init_repo.bat
 
 /logs
 /cfg
+/tests
 
 /srcds/start.bat
 /cfg/server.cfg
