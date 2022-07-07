@@ -197,6 +197,8 @@ try:
     raise SystemExit
 except Exception as unknown_error:
     print(f"[{current_time}] | {warn_log} Whoops, unknown error!")
+    # или пофикси сам
+    # знаете, я и сам своего рода кодер
     print(f"[{current_time}] | {warn_log} Contact with us: https://github.com/shockpast/gmod-tools/issues/new")
 
     file_time = datetime.now().strftime("%H.%M.%S")
@@ -224,5 +226,5 @@ except Exception as unknown_error:
         raise SystemExit
     except FileExistsError:
         print(f"[{current_time}] | {error_log} \"error-{file_time}.log\" already exists!")
-        
+
         raise SystemExit
