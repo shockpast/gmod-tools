@@ -1,8 +1,18 @@
 from datetime import datetime
 import os
+import platform
 import time
+import sys
 
-import colorama
+try:
+    import colorama
+except ImportError:
+    print("colorama not installed!")
+
+try:
+    import cpuinfo
+except ImportError:
+    print("cpuinfo not installed!")
 
 info_log    = f"{colorama.Fore.BLUE}[INFO]{colorama.Style.RESET_ALL}"
 input_log   = f"{colorama.Fore.LIGHTBLUE_EX}[INPUT]{colorama.Style.RESET_ALL}"
@@ -132,16 +142,27 @@ clear()
 """
     Workshop Collection ID.
 """
-print(f"[{current_time}] | {info_log} Name: Workshop Collection ID.")
-print(f"[{current_time}] | {info_log} Description: The ID your steam workshop collection. This will be the addons the server automatically downloads. (Clients will not download these files)")
-print(f"[{current_time}] | {info_log} Arguments: integer (e.g. 2594826718)")
-workshop = int(input(f"[{current_time}] | {input_log} Value: "))
+print(f"[{current_time}] | {info_log} Name: Workshop Collection ID - skip.")
+print(f"[{current_time}] | {info_log} Description: It will skip adding of \"Workshop Collection ID\".")
+print(f"[{current_time}] | {info_log} Arguments: string")
+workshop_add = str(input(f"[{current_time}] | {input_log} Add (Y/N): "))
 
-if (not type(workshop) is int):
-    print(f"[{current_time}] | {error_log} server.workshop must be an int!")
-    raise SystemExit
+if (workshop_add == "Y"):
+    print(f"[{current_time}] | {info_log} Name: Workshop Collection ID - add.")
+    print(f"[{current_time}] | {info_log} Description: The ID your steam workshop collection. This will be the addons the server automatically downloads. (Clients will not download these files)")
+    print(f"[{current_time}] | {info_log} Arguments: integer (e.g. 2594826718)")
+    workshop = int(input(f"[{current_time}] | {input_log} Value: "))
 
-clear()
+    if (not type(workshop) is int):
+        print(f"[{current_time}] | {error_log} server.workshop must be an int!")
+        raise SystemExit
+
+    clear()
+
+else:
+    workshop = ""
+
+    clear()
 
 """
     start.bat creating process.
@@ -174,14 +195,31 @@ try:
 
     print(f"[{current_time}] | {success_log} \"start.bat\" successfully configured! [4/4]")
     raise SystemExit
-
 except Exception as unknown_error:
     print(f"[{current_time}] | {warn_log} Whoops, unknown error!")
     print(f"[{current_time}] | {warn_log} Contact with us: https://github.com/shockpast/gmod-tools/issues/new")
 
-    create_error_log    = open(f"logs/error-{current_time}.log", "x")
-    error_log           = open(f"logs/error-{current_time}.log", "a")
+    file_time = datetime.now().strftime("%H.%M.%S")
 
-    error_log.write(f"--------------------------------------------------\n{unknown_error}")
+    try:
+        create_error_log = open(f"error-{file_time}.log", "x")
+        
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
 
-    raise SystemExit
+        error_log = open(f"error-{file_time}.log", "a")
+        error_log.write(f"""Whoops! That's an error!
+        \n--------------------------------------------------\n
+        Type: {exc_type}\n
+        File: {fname}\n
+        Line: {exc_tb.tb_lineno}\n
+        Detailed Error: {unknown_error}
+        \n--------------------------------------------------\n
+        OS: {sys.platform}\n
+        CPU: {cpuinfo.get_cpu_info()['brand']}\n
+        Python: {platform.python_version}""")
+
+        raise SystemExit
+    except FileExistsError:
+        print(f"[{current_time}] | {error_log} \"error-{file_time}.log\" already exists!")
+        raise SystemExit
