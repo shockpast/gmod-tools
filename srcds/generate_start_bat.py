@@ -224,4 +224,5 @@ except Exception as unknown_error:
         raise SystemExit
     except FileExistsError:
         print(f"[{current_time}] | {error_log} \"error-{file_time}.log\" already exists!")
+        
         raise SystemExit
