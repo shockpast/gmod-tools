@@ -208,7 +208,8 @@ except Exception as unknown_error:
         fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
 
         error_log = open(f"error-{file_time}.log", "a")
-        error_log.write(f"""Whoops! That's an error!
+        error_log.write(
+        f"""Whoops! That's an error!
         \n--------------------------------------------------\n
         Type: {exc_type}\n
         File: {fname}\n
@@ -217,7 +218,8 @@ except Exception as unknown_error:
         \n--------------------------------------------------\n
         OS: {sys.platform}\n
         CPU: {cpuinfo.get_cpu_info()['brand']}\n
-        Python: {platform.python_version}""")
+        Python: {platform.python_version}
+        """)
 
         raise SystemExit
     except FileExistsError:
