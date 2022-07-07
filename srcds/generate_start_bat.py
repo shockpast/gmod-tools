@@ -191,7 +191,7 @@ except FileExistsError:
     raise SystemExit
 
 try:
-    pretty_psrint.prettywait("Writing all configurations into \"start.bat\"... [3/4]")
+    pretty_print.prettywait("Writing all configurations into \"start.bat\"... [3/4]")
 
     port        = port
     tickrate    = tickrate
