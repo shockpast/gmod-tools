@@ -1,1 +1,7 @@
 init_repo.bat
+
+/logs
+/cfg
+
+/srcds/start.bat
+/cfg/server.cfg
