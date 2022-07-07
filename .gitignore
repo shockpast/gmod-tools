@@ -1,4 +1,5 @@
 init_repo.bat
+repair_repo.bat
 
 /logs
 /tests
