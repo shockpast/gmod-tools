@@ -5,8 +5,8 @@
 - Installed packages from `requirements.txt`
 
 ## Installation.
-1. Install ![Python](https://www.python.org/downloads/) for Windows or whatever your platform is.
-2. Download this ![gmod-tools](https://github.com/shockpast/gmod-tools/archive/refs/heads/main.zip).
+1. Install [Python](https://www.python.org/downloads/) for Windows or whatever your platform is.
+2. Download this [gmod-tools](https://github.com/shockpast/gmod-tools/archive/refs/heads/main.zip).
 3. Install all required packages for scripts by typing command in command line (:
 ```
 py -m pip install -r requirements.txt
