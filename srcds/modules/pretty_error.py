@@ -5,7 +5,7 @@ import platform
 import cpuinfo
 import os
 
-import pretty_print
+import modules.pretty_print as pretty_print
 
 def prettyerror(error):
     file_time = datetime.now().strftime("%H.%M.%S")

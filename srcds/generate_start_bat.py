@@ -1,7 +1,7 @@
 import os
 import time
-import pretty_print
-import pretty_error
+import modules.pretty_print as pretty_print
+import modules.pretty_error as pretty_error
 
 clear = lambda: os.system("cls")
 clear()
