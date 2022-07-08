@@ -1,4 +1,4 @@
 @echo off
 cd cfg
-py ./server_cfg.py
+py ./main.py
 pause
