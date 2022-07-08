@@ -171,7 +171,7 @@ else:
 try:
     pretty_print.prettywait("Creating \"start.bat\"... [1/4]")
 
-    create_start_bat = open("start.bat", "x")
+    _ = open("start.bat", "x")
     time.sleep(0.2) 
 
     pretty_print.prettysuccess("\"start.bat\" saved! [2/4]")

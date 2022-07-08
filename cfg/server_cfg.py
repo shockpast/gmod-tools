@@ -410,8 +410,8 @@ clear()
 try:
     pretty_print.prettywait("Creating \"server.cfg\"... [1/4]")
 
-    create_server_cfg = open("server.cfg", "x")
-    time.sleep(0.2) 
+    _ = open("server.cfg", "x")
+    time.sleep(0.2)
 
     pretty_print.prettysuccess("\"server.cfg\" saved! [2/4]")
 except FileExistsError:
