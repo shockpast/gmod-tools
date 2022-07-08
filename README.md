@@ -17,7 +17,7 @@ cd srcds; py ./generate_start_bat.py
 ```
 4. That's it, you done!
 
-## Uhh...
+## Platforms.
 - MacOS are **not supported**, but it can be working, not tested.
 - Linux are **not 100% supported** for all generators (especially for start.bat generator).
 - Windows are only the supported platform.
