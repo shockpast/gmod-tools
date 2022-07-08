@@ -1,16 +1,5 @@
-from datetime import datetime
 import os
-import platform
 import time
-import sys
-
-# pip install ...
-try:
-    import cpuinfo
-except ImportError:
-    print("cpuinfo not installed!")
-
-# External.
 import pretty_print
 import pretty_error
 
@@ -192,14 +181,6 @@ except FileExistsError:
 
 try:
     pretty_print.prettywait("Writing all configurations into \"start.bat\"... [3/4]")
-
-    port        = port
-    tickrate    = tickrate
-    lan         = lan
-    max_players = max_players
-    gamemode    = gamemode
-    map         = map
-    workshop    = workshop
 
     start_bat = open("start.bat", "a")
     start_bat.write(f"start \"SRCDS\" /B srcds.exe -game garrysmod -conlog -port {port} -console -conclearlog -condebug -tvdisable -maxplayers {max_players} +gamemode {gamemode} +map {map} +host_workshop_collection \"{workshop}\" -tickrate {tickrate} +fps_max {tickrate} +sv_lan {lan}\n:: Created via Garry's Mod Tools!")
