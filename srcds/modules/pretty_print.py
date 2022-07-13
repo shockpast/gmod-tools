@@ -1,9 +1,13 @@
 from datetime import datetime
+import os
 
 try:
     import colorama
 except ImportError:
     print("colorama not installed!")
+
+clear = lambda: os.system("cls") # Windows
+clear()
 
 info_log    = f"{colorama.Fore.LIGHTBLUE_EX}[INFO]{colorama.Style.RESET_ALL}"
 input_log   = f"{colorama.Fore.LIGHTBLUE_EX}[INPUT]{colorama.Style.RESET_ALL}"
@@ -12,7 +16,8 @@ error_log   = f"{colorama.Fore.LIGHTRED_EX}[ERROR]{colorama.Style.RESET_ALL}"
 success_log = f"{colorama.Fore.LIGHTGREEN_EX}[SUCCESS]{colorama.Style.RESET_ALL}"
 wait_log    = f"{colorama.Fore.LIGHTCYAN_EX}[WAIT]{colorama.Style.RESET_ALL}"
 
-current_time = datetime.now().strftime("%H:%M:%S")
+current_time    = datetime.now().strftime("%H:%M:%S")
+maxint          = 9223372036854775807
 
 def prettyinfo(arguments):
     return print(f"[{current_time}] | {info_log} {arguments}")
@@ -31,3 +36,16 @@ def prettysuccess(arguments):
 
 def prettywait(arguments):
     return print(f"[{current_time}] | {wait_log} {arguments}")
+
+def askinput(name, description, arguments):
+    prettyinfo("Name: " + name)
+    prettyinfo("Description: " + description)
+    prettyinfo("Arguments: " + arguments)
+
+    receiver = input(f"[{current_time}] | {input_log} Value: ")
+
+    clear()
+    return receiver
+
+""" def quitProgram():
+    raise SystemExit """
