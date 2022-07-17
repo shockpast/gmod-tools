@@ -1,13 +1,10 @@
 __pycache__
+*.log
 
 init_repo.bat
 repair_repo.bat
 
-/logs
 /tests
 
 /srcds/start.bat
-/srcds/*.log
-
 /cfg/server.cfg
-/cfg/*.log
