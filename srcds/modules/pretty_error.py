@@ -5,23 +5,21 @@ import platform
 import cpuinfo
 import os
 
-import modules.pretty_print as pretty_print
-
 def prettyerror(error):
-    file_time = datetime.now().strftime("%H.%M.%S")
+    fileTime = datetime.now().strftime("%H.%M.%S")
 
     try:
-        _ = open(f"error-{file_time}.log", "x")
-        
-        exc_type, _, exc_tb = sys.exc_info()
-        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        open(f"error-{fileTime}.log", "x")
 
-        error_log = open(f"error-{file_time}.log", "a")
-        error_log.write(
+        excType, _, excTb = sys.exc_info()
+        fileName = os.path.split(excTb.tb_frame.f_code.co_filename)[1]
+
+        errorLog = open(f"error-{fileTime}.log", "a")
+        errorLog.write(
         f"""--------------------------------------------------\n
-    Type: "{exc_type}"\n
-    File: "{fname}"\n
-    Line: "{exc_tb.tb_lineno}"
+    Type: "{excType}"\n
+    File: "{fileName}"\n
+    Line: "{excTb.tb_lineno}"
         \n--------------------------------------------------\n
     Detailed Log: {error}
         \n--------------------------------------------------\n
@@ -32,6 +30,4 @@ def prettyerror(error):
 
         raise SystemExit
     except FileExistsError:
-        pretty_print.prettyerror(f"\"error-{file_time}.log\" already exists!")
-
         raise SystemExit
