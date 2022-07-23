@@ -7,10 +7,10 @@
 ```
 py -m pip install -r requirements.txt
 ```
-3. When the installation completed, run one of the batch files in the root directory of this repository:
+4. Run any of your scripts that you need:
 ```
-- gen_start_bat.bat
-- gen_server_cfg.bat
+py srcds/main.py -> server.bat Generator.
+py cfg/main.py   -> server.cfg Generator.
 ```
 4. That's it, you done!
 
